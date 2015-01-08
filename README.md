@@ -1,3 +1,7 @@
+JERSEY
+Coming up.
+
+JACKSON
 http://wiki.fasterxml.com/JacksonInFiveMinutes
 
 Jackson offers three alternative methods (one with two variants) for processing JSON:
