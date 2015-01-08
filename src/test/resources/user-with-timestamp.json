@@ -2,5 +2,6 @@
   "name" : { "first" : "Elvis", "last" : "Presley" },
   "gender" : "MALE",
   "verified" : false,
-  "userImage" : "Rm9vYmFyIQ=="
+  "userImage" : "Rm9vYmFyIQ==",
+  "timestamp": "2015-01-08T16:22:38"
 }

@@ -1,9 +1,9 @@
-package se.patrikbergman.java.jaxrs;
+package se.patrikbergman.java.jaxrs.databinding.simple;
 
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class User {
+class User {
 
 	public enum Gender { MALE, FEMALE };
 	private Gender gender;
