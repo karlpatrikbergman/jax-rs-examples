@@ -33,18 +33,8 @@
         </dependency>
         <dependency>
             <groupId>se.patrikbergman.java</groupId>
-            <artifactId>java-examples</artifactId>
+            <artifactId>java-utilities</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.oracle.weblogic</groupId>
-                    <artifactId>jackson-mapper-asl-1.9.2</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.oracle.weblogic</groupId>
-                    <artifactId>jackson-core-asl-1.9.2</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
