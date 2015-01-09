@@ -18,20 +18,14 @@ public class DatabindingTimestampTest {
 	@Before
 	public void setup() {
 		mapper = new ObjectMapper();
-	}
-
-	@Test // From Java pojo to JSON
-	public void marshall() throws IOException {
-		ImmutableName name = new ImmutableName("Sheila", "Escovedo");
-		String jsonString = mapper.writeValueAsString(name);
-		assertNotNull(jsonString);
-		System.out.println(jsonString);
+		mapper.registerModule(new JodaModule());
 	}
 
 	@Test // From Java pojo to JSON
 	public void marshallUserWithTimestamp() throws IOException {
-		ImmutableName name = new ImmutableName("Sheila", "Escovedo");
-		UserWithTimestamp user = new UserWithTimestamp(UserWithTimestamp.Gender.FEMALE, name, true, "somevalue".getBytes(), new LocalDateTime("2015-01-08T16:22:38"));
+		UserWithTimestamp user = new UserWithTimestamp(UserWithTimestamp.Gender.FEMALE,
+				new ImmutableName("Sheila", "Escovedo"), true, "somevalue".getBytes(),
+				new LocalDateTime("2015-01-08T16:22:38"));
 		String jsonString = mapper.writeValueAsString(user);
 		assertNotNull(jsonString);
 		System.out.println(jsonString);
@@ -41,7 +35,7 @@ public class DatabindingTimestampTest {
 	public void umarshallUserWithTimestamp() throws IOException {
 		String jsonString = new ResourceString("user-with-timestamp.json").toString();
 		assertNotNull(jsonString);
-		mapper.registerModule(new JodaModule());
+
 		UserWithTimestamp user = mapper.readValue(jsonString, UserWithTimestamp.class);
 		System.out.println(user);
 	}
