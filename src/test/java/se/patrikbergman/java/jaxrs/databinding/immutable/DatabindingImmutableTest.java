@@ -1,6 +1,5 @@
 package se.patrikbergman.java.jaxrs.databinding.immutable;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,8 +35,7 @@ public class DatabindingImmutableTest {
 		System.out.println(jsonString);
 	}
 
-	@Test
-	//From JSON to Java pojo
+	@Test //From JSON to Java pojo
 	public void unmarshallName() throws IOException {
 		String jsonString = new ResourceString("name.json").toString();
 		assertNotNull(jsonString);
@@ -48,10 +46,10 @@ public class DatabindingImmutableTest {
 		System.out.println(name);
 	}
 
-	@Test
-	public void unmarshallImmutableUser() throws JsonProcessingException {
-		ImmutableUser user = new ImmutableUser(ImmutableUser.Gender.FEMALE, new ImmutableName("Mac", "McCaughan "), false, "somestring".getBytes());
-		String jsonString = mapper.writeValueAsString(user);
+	@Test //From JSON to Java pojo
+	public void umarshallImmutableUser() throws IOException {
+		String jsonString = new ResourceString("user.json").toString();
+		ImmutableUser user = mapper.readValue(jsonString, ImmutableUser.class);
 		System.out.println(jsonString);
 	}
 }

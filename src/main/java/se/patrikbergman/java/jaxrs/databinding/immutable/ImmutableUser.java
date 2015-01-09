@@ -10,26 +10,26 @@ class ImmutableUser {
 	public enum Gender { MALE, FEMALE };
 	private Gender gender;
 	private ImmutableName name;
-	private boolean isVerified;
+	private boolean verified;
 	private byte[] userImage;
 
 	@JsonCreator
 	public ImmutableUser(
 			@JsonProperty("gender") Gender gender,
 			@JsonProperty("name") ImmutableName name,
-			@JsonProperty("isVerified") boolean isVerified,
+			@JsonProperty("verified") boolean verified,
 			@JsonProperty("userImage") byte[] userImage) {
 
 		this.gender = gender;
 		this.name = name;
-		this.isVerified = isVerified;
+		this.verified = verified;
 		this.userImage = userImage;
 	}
 
 
 
 	public ImmutableName getName() { return name; }
-	public boolean isVerified() { return isVerified; }
+	public boolean isVerified() { return verified; }
 	public Gender getGender() { return gender; }
 	public byte[] getUserImage() { return userImage; }
 

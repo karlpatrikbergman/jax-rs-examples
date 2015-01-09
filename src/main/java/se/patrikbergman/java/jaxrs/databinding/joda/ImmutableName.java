@@ -1,4 +1,4 @@
-package se.patrikbergman.java.jaxrs.databinding.immutable;
+package se.patrikbergman.java.jaxrs.databinding.joda;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;

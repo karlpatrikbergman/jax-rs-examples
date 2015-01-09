@@ -1,7 +1,7 @@
-JERSEY
+--- JERSEY ---------
 Coming up.
 
-JACKSON
+---JACKSON ---------
 http://wiki.fasterxml.com/JacksonInFiveMinutes
 
 Jackson offers three alternative methods (one with two variants) for processing JSON:
@@ -28,4 +28,3 @@ From usage perspective, one way to summarize these 3 methods is:
 Streaming API is best performing (lowest overhead, fastest read/write; other 2 methods build on it)
 Data Binding is often most convenient
 Tree Model is most flexible
-

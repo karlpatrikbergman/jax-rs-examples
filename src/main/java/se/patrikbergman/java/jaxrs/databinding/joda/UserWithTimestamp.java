@@ -1,53 +1,41 @@
 package se.patrikbergman.java.jaxrs.databinding.joda;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.joda.time.LocalDateTime;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class UserWithTimestamp {
 
 	public enum Gender { MALE, FEMALE };
 	private Gender gender;
-	private Name name;
-	private boolean isVerified;
+	private ImmutableName name;
+	private boolean verified;
 	private byte[] userImage;
+
+	@JsonIgnoreProperties(ignoreUnknown = true)
 	private LocalDateTime timestamp;
 
 	@JsonCreator
 	public UserWithTimestamp(
 			@JsonProperty("gender") Gender gender,
-			@JsonProperty("name") Name name,
-			@JsonProperty("isVerified") boolean isVerified,
+			@JsonProperty("name") ImmutableName name,
+			@JsonProperty("verified") boolean verified,
 			@JsonProperty("userImage") byte[] userImage,
 			@JsonProperty("timestamp") LocalDateTime timestamp) {
 
 		this.gender = gender;
 		this.name = name;
-		this.isVerified = isVerified;
+		this.verified = verified;
 		this.userImage = userImage;
 		this.timestamp = timestamp;
 	}
 
-	public static class Name {
-		private String first, last;
-
-		@JsonCreator
-		public Name(
-				@JsonProperty("first") String first,
-				@JsonProperty("last") String last) {
-
-			this.first = first;
-			this.last = last;
-		}
-
-		public String getFirst() { return first; }
-		public String getLast() { return last; }
-	}
-
-	public Name getName() { return name; }
-	public boolean isVerified() { return isVerified; }
+	public ImmutableName getName() { return name; }
+	public boolean isVerified() { return verified; }
 	public Gender getGender() { return gender; }
 	public byte[] getUserImage() { return userImage; }
 

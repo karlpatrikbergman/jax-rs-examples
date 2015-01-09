@@ -25,8 +25,7 @@ public class DataBindingSimpleTest {
 		mapper = new ObjectMapper();
 	}
 
-	@Test
-	// From Java pojo to JSON
+	@Test // From Java pojo to JSON
 	public void marshall() throws IOException {
 		User user = new User();
 		User.Name name = new User.Name();
@@ -42,8 +41,7 @@ public class DataBindingSimpleTest {
 		System.out.println(jsonString);
 	}
 
-	@Test
-	//From JSON to Java pojo
+	@Test //From JSON to Java pojo
 	public void unmarshall() throws IOException {
 		String jsonString = new ResourceString("user.json").toString();
 		assertNotNull(jsonString);
