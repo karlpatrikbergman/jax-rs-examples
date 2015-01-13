@@ -12,17 +12,15 @@ class UserWithTimestamp {
 
 	public enum Gender { MALE, FEMALE };
 	private Gender gender;
-	private ImmutableName name;
+	private NameWithTimestamp name;
 	private boolean verified;
 	private byte[] userImage;
-
-	@JsonIgnoreProperties(ignoreUnknown = true)
 	private LocalDateTime timestamp;
 
 	@JsonCreator
 	public UserWithTimestamp(
 			@JsonProperty("gender") Gender gender,
-			@JsonProperty("name") ImmutableName name,
+			@JsonProperty("name") NameWithTimestamp name,
 			@JsonProperty("verified") boolean verified,
 			@JsonProperty("userImage") byte[] userImage,
 			@JsonProperty("timestamp") LocalDateTime timestamp) {
@@ -34,7 +32,7 @@ class UserWithTimestamp {
 		this.timestamp = timestamp;
 	}
 
-	public ImmutableName getName() { return name; }
+	public NameWithTimestamp getName() { return name; }
 	public boolean isVerified() { return verified; }
 	public Gender getGender() { return gender; }
 	public byte[] getUserImage() { return userImage; }

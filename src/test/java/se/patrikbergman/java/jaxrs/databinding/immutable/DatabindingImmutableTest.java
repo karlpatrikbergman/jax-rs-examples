@@ -37,7 +37,7 @@ public class DatabindingImmutableTest {
 
 	@Test //From JSON to Java pojo
 	public void unmarshallName() throws IOException {
-		String jsonString = new ResourceString("name.json").toString();
+		String jsonString = new ResourceString("immutable/name.json").toString();
 		assertNotNull(jsonString);
 		System.out.println(jsonString);
 
@@ -48,7 +48,7 @@ public class DatabindingImmutableTest {
 
 	@Test //From JSON to Java pojo
 	public void umarshallImmutableUser() throws IOException {
-		String jsonString = new ResourceString("user.json").toString();
+		String jsonString = new ResourceString("immutable/user.json").toString();
 		ImmutableUser user = mapper.readValue(jsonString, ImmutableUser.class);
 		System.out.println(jsonString);
 	}

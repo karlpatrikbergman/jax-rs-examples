@@ -43,7 +43,7 @@ public class DataBindingSimpleTest {
 
 	@Test //From JSON to Java pojo
 	public void unmarshall() throws IOException {
-		String jsonString = new ResourceString("user.json").toString();
+		String jsonString = new ResourceString("simple/user.json").toString();
 		assertNotNull(jsonString);
 
 		User user = mapper.readValue(jsonString, User.class);
