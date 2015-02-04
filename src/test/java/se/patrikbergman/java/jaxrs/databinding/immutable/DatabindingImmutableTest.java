@@ -18,7 +18,7 @@ public class DatabindingImmutableTest {
 		mapper = new ObjectMapper();
 	}
 
-	@Test
+	@Test //From Java pojo to JSON string == Serialize
 	public void marshallName() throws IOException {
 		ImmutableName name = new ImmutableName("Sheila", "Escovedo");
 		String jsonString = mapper.writeValueAsString(name);
@@ -26,7 +26,7 @@ public class DatabindingImmutableTest {
 		System.out.println(jsonString);
 	}
 
-	@Test
+	@Test //From Java pojo to JSON string == Serialize
 	public void marshallImmutableUser() throws IOException {
 		ImmutableName name = new ImmutableName("Sheila", "Escovedo");
 		ImmutableUser user = new ImmutableUser(ImmutableUser.Gender.FEMALE, name, true, "somevalue".getBytes());
@@ -35,7 +35,7 @@ public class DatabindingImmutableTest {
 		System.out.println(jsonString);
 	}
 
-	@Test //From JSON to Java pojo
+	@Test //From JSON to Java pojo == Deserialize
 	public void unmarshallName() throws IOException {
 		String jsonString = new ResourceString("immutable/name.json").toString();
 		assertNotNull(jsonString);
@@ -46,7 +46,7 @@ public class DatabindingImmutableTest {
 		System.out.println(name);
 	}
 
-	@Test //From JSON to Java pojo
+	@Test //From JSON to Java pojo == Deserialize
 	public void umarshallImmutableUser() throws IOException {
 		String jsonString = new ResourceString("immutable/user.json").toString();
 		ImmutableUser user = mapper.readValue(jsonString, ImmutableUser.class);
