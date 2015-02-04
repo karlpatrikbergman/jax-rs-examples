@@ -36,7 +36,7 @@ public class DataBindingSimpleTest {
 		user.setUserImage("somerandomstring".getBytes());
 		user.setVerified(false);
 
-		String jsonString = mapper.writeValueAsString(user);
+		String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user);
 		assertNotNull(jsonString);
 		System.out.println(jsonString);
 	}
