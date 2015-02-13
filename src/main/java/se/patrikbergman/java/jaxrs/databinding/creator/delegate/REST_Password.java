@@ -21,7 +21,7 @@ public class REST_Password {
 	 * }
 	 *
 	 * This also have impact on bigger json structures containing REST_Password
-	 * 
+	 *
 	 */
 	@JsonCreator
 	public REST_Password(String value) {

@@ -8,10 +8,10 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 class ImmutableUser {
 
 	public enum Gender { MALE, FEMALE };
-	private Gender gender;
-	private ImmutableName name;
-	private boolean verified;
-	private byte[] userImage;
+	private final Gender gender;
+	private final ImmutableName name;
+	private final boolean verified;
+	private final byte[] userImage;
 
 	@JsonCreator
 	public ImmutableUser(
