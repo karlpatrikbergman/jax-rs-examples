@@ -2,7 +2,6 @@ package se.patrikbergman.java.jaxrs.databinding.withbuilder;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
@@ -53,16 +52,12 @@ class User {
 		return ToStringBuilder.reflectionToString(this);
 	}
 
-	@JsonPOJOBuilder(buildMethodName = "build")
 	public static final class Builder {
 		private Gender gender;
 		private boolean verified;
 		private String firstName;
 		private String lastName;
 		private long phoneNumber;
-//
-//		public Builder() {
-//		}
 
 		@JsonProperty("gender")
 		public Builder gender(Gender gender) {
