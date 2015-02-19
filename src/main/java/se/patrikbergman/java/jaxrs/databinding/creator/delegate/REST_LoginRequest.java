@@ -10,8 +10,17 @@ public class REST_LoginRequest {
 	private final String challengeResponse;
 
 	/**
-	 * Note that REST_Password user delegate based @JsonCreator. To create a REST_Password json for password must
-	 * have the form "some-password"
+	 * Note that REST_Password user delegate based @JsonCreator. To create a REST_Password field in json for password
+	 * must have the form "password" : "<some password>"
+	 *
+	 * Ex:
+	 * 	{
+	 * 		"username" : "Test-user",
+	 * 		"password" : "Testar99",
+	 * 		"challengeResponse" : null
+	 * 	}
+	 * 	(Compare with c
+	 *
 	 */
 	@JsonCreator
 	public REST_LoginRequest(@JsonProperty("username") String username,
